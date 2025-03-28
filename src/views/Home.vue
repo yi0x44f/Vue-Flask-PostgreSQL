@@ -1,13 +1,16 @@
 <template>
     <div>
-        Hi
+        <a href="/login">login</a>
+    </div>
+    <div>
+        <a href="/dashboard">dashboard</a>
     </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 
 </script>
 
-<style lang="scss" scoped>
+<style  scoped>
 
 </style>

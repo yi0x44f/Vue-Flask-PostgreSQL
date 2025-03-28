@@ -1,29 +1,21 @@
 <script setup lang="ts">
 import { reactive, ref } from 'vue';
-const loginURL = 'http://localhost:5000/login';
-
-interface LoginForm{
-  name: string
-}
-
-const form = reactive<LoginForm>({
+import type { LoginRequest, LoginResponse } from '@/types/Login';
+import { apiFetch } from '@/api';
+const form = reactive<LoginRequest>({
   name: ''
-})
+});
 
 const handleSubmit = async()=>{
   try{
-    const res = await fetch(loginURL, {
+    const result = await apiFetch<LoginResponse>('login', {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
       body: JSON.stringify(form)
-    })
-    const data = await res.json()
-    
+    });
+    console.log(result.message);
   }
   catch(err){
-    console.log(err)
+    console.log(err);
   }
 }
 
