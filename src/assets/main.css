@@ -1,9 +1,6 @@
 @import "tailwindcss";
 
 body{
-  @apply bg-linear-to-bl from-purple-50 to-purple-500 min-h-screen flex justify-center items-center;
+  @apply bg-linear-to-bl from-purple-50 to-purple-500 min-h-screen;
 }
 
-.login-container{
-  @apply bg-white shadow-lg rounded-lg p-8 h-1/4 py-5;
-}

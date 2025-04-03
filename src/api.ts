@@ -1,12 +1,14 @@
-const API_HOST = 'http://10.8.0.10:5000';
+const API_HOST = 'http://localhost:5000';
 
 export async function apiFetch<T>(path: string, options: RequestInit={}): Promise<T>{
     const url = `${API_HOST}/${path}`;
 
+    const token = localStorage.getItem('token');
+
     const response = await fetch(url,{
-        credentials: 'include',
         headers: {
             'Content-Type': 'application/json',
+            ...(token? {'Authorization': `Bearer ${token}`}: {}),
             ...(options.headers || {})
         },
         ...options
